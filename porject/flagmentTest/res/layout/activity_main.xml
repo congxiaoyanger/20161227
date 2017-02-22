@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="horizontal" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="40"
+        android:orientation="vertical">
+        
+        <fragment 
+            android:id="@+id/fragment_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.flagmenttest.oneFragment"
+            android:background="#ffffff"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="30"/>
+        
+        <fragment 
+            android:id="@+id/fragment_log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="4dp"
+            android:name="com.example.flagmenttest.twoFragment"
+            android:layout_weight="70"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:layout_weight="60"
+        android:background="#ffffff"
+        android:orientation="vertical">
+        
+        <TabHost 
+            android:id="@+id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        
+	        <LinearLayout 
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:orientation="vertical">
+	            
+	            <TabWidget
+	                    android:id="@android:id/tabs"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="74dp"
+	                    android:background="#778899"
+	                    >
+	            </TabWidget>
+	            
+	            <RelativeLayout 
+	                android:layout_width="match_parent"
+	                android:layout_height="50dp"
+	                android:gravity="center"
+	                android:background="#ffffff">
+	                
+	                <ImageView
+	                        android:id="@+id/iv_refresh"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_alignParentBottom="true"
+	                        android:layout_alignParentRight="true"
+	                        android:layout_alignParentTop="true"
+	                        android:layout_centerHorizontal="true"
+	                        android:layout_marginRight="16dp"
+	                        android:padding="2dp"
+	                        android:src="@drawable/refresh_24" />
+	  					
+	  					<TextView
+	  					    android:id="@+id/textView"
+	  					    android:layout_width="match_parent"
+	  					    android:layout_height="wrap_content"
+	  					    android:layout_alignParentBottom="true"
+	  					    android:layout_alignParentLeft="true"
+	  					    android:layout_alignParentTop="true"
+	  					    android:layout_marginLeft="16dp"
+	  					    android:layout_toLeftOf="@+id/iv_refresh"
+	  					    android:gravity="center"
+	  					    android:text="番組表"
+	  					    android:textSize="40dp" />
+	            </RelativeLayout>
+	            
+	            <FrameLayout 
+	                android:id="@android:id/tabcontent"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:background="#ffffff">
+	                
+	                <LinearLayout
+	                        android:id="@+id/tab1"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="match_parent" >
+	
+	                    <fragment
+	                        android:id="@+id/fragment1"
+	                        android:name="com.example.flagmenttest.threeFragment"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="match_parent" />
+	
+	                 </LinearLayout>
+	                 
+	                <LinearLayout 
+	                    android:id="@+id/tab2"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="match_parent" >
+	                    
+	                      <fragment
+	                        android:id="@+id/fragment2"
+	                        android:name="com.example.flagmenttest.fourFragment"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="match_parent" />
+	                </LinearLayout>
+	                
+	                <LinearLayout 
+	                    android:id="@+id/tab3"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="match_parent" >
+	                    
+	                      <fragment
+	                        android:id="@+id/fragment3"
+	                        android:name="com.example.flagmenttest.fiveFragment"
+	                        android:layout_width="match_parent"
+	                        android:layout_height="match_parent" />
+	                </LinearLayout>
+	
+	            </FrameLayout>
+	        </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+    
+</LinearLayout>
