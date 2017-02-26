@@ -1,0 +1,102 @@
+
+1.创建账号和密码（如果创建多个账号，重复第一步的两个操作，修改为需要创建的用户名就行）
+	1)创建 fudemame_ftp001 的用户， 用户组为 apache用户组
+	 useradd -g apache fudemame_ftp001
+	2）设置用户名为 fudemame_ftp001 的登陆密码 （连续输入两次）
+	 passwd fudemame_ftp001
+
+2.修改系统允许账号密码登陆。
+ 1）使用root身份编辑亚马逊云主机的ssh登录方式，找到 PasswordAuthentication no，把no改成yes
+	vim /etc/ssh/sshd_config
+	
+ 2）修改完后保存并重启sshd
+	sudo /sbin/service sshd restart
+	
+3.使用shell 登陆新创建的账号，测试是否成功。
+	ssh ip地址
+
+登陆方式：ssh 54.199.161.134
+
+ec
+
+■ユーザを修正したディレクトリを指定する
+usermod -d /var/www/fudemame_license/pkg/App/Templates/Product/
+
+■ssh -i 证书所在路径 用户名@ip
+ecuser用户，切换到root就行
+ec2-user@54.199.161.134
+
+
+
+■本番サーバ
+
+
+■アカウント　
+U:fudemame_ftp001 
+P:fudemame001 →　変更：fudemame_001
+
+■アカウント権限
+path:/var/www/
+command:ls -al
+
+sudo su- usermod -d /var/www/fudemame_license/pkg/App/Templates/Product/
+
+sudo su- usermod -d /var/www/fudemame_license/pkg/Webroot/
+
+■证书登录
+ssh -i 证书所在路径 用户名@ip
+
+操作手順：
+①cd /var/www/fudemame_labelprint
+②git status
+③sudo su git checkout public/js/site.js  是把以前版本的信息，下载到本地。
+④git pull
+⑤U:zuo@iecossoft.com/P:P@ssw0rD
+
+■
+
+①cd /var/www/fudemame_labelprint
+②sudo git pull    /sudo git pull origin master
+③U:zuo@iecossoft.com/P:P@ssw0rD
+④:wq
+
+■反映した問題が発生すれば、元のバージョンを戻す
+sudo git reset fc178734cf480ddb642f5fd70f4bea4f42427233 —hard
+
+■apache restart
+sudo service httpd restart
+
+STG →　10G　
+本番環境→
+
+■サーバの容量を見る
+df -lh
+
+■dirファイルを見る
+ll -a public/tmpl
+
+■容量を見る
+du -h --max-depth=1
+
+■
+sudo rm -rf 17_551
+
+■git操作手順
+1、sudo git add application/layouts/home/head.phtml
+2、sudo git commit -a
+3、sudo git push
+問題があれば、ソースコードを直す
+git checkout xxx.file
+
+■取り替えブランチ
+git checkout master
+
+
+■ユーザ名を修正する
+sudo chown fudemame_ftp001 xx.html
+■ユーザgrpを修正する
+sudo chgrp apache fude.html
+■フィアル読み書き権限を設定する
+sudo chmod 777
+■gitの配置を見る
+git config --local --list
